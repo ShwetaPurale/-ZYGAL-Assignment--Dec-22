@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Clockwise & Anticlockwise Color Change</title>
+</head>
+<body>
+    <div class="instruction-section">
+        <p>My Answer :</p>
+        <ul>
+            <li>1. On click of clockwise button the colors within block should move in clockwise direction
+                <br>
+                On clockwise button click - <br>
+                Red Color of block 1 should be applied to block 2, yellow color of block 2 should be applied to block 3,
+                green color of block 3 should be applied to block 4 and orange color of block 4 should be applied to
+                block 1.<br>
+            </li>
+            <li>2. On click of anti-clockwise button the colors within block should move in anti-clockwise direction.
+                <br>
+                Same as above but in reverse direction.
+            </li>
+            
+            
+        </ul>
+    </div>
+
+    <div class="main-section">
+
+        <div class="row">
+            <div id="block1" class="block">
+                <p>1</p>
+            </div>
+            <div id="block2" class="block">
+                <p>2</p>
+            </div>
+        </div>
+
+        <div class="row center">
+            <button class="btn" onclick="handleAntiClockwiseColorSwitch()">
+                Anti-Clockwise
+            </button>
+            <button class="btn" onclick="handleClockwiseColorSwitch()">
+                Clockwise
+            </button>
+        </div>
+
+        <div class="row">
+            <div id="block4" class="block">
+                <p>4</p>
+            </div>
+            <div id="block3" class="block">
+                <p>3</p>
+            </div>
+        </div>
+
+    </div>
+
+    
+    <script type="text/javascript">
+
+        // Your code here
+
+        var colorsToSwitch1 = ['red', 'yellow', 'green', 'orange'];
+        var colorsToSwitch2 = ['red', 'orange', 'green', 'yellow'];
+        var i = 0;
+
+        function handleClockwiseColorSwitch() {
+
+            if (i == 0) {
+                j = 3;
+                k = 2;
+                l = 1;
+            } else if (i == 1) {
+                j = 0;
+                k = 3;
+                l = 2;
+            } else if (i == 2) {
+                j = 1;
+                k = 0;
+                l = 3;
+            } else if (i == 3) {
+                j = 2;
+                k = 1;
+                l = 0;
+            }
+
+            document.getElementById("block1").style.backgroundColor = colorsToSwitch2[i];
+            document.getElementById("block2").style.backgroundColor = colorsToSwitch2[j];
+            document.getElementById("block3").style.backgroundColor = colorsToSwitch2[k];
+            document.getElementById("block4").style.backgroundColor = colorsToSwitch2[l];
+            i++;
+            if (i == 4) {
+                i = 0;
+            }
+
+        }
+
+        function handleAntiClockwiseColorSwitch() {
+
+            if (i == 0) {
+                j = 1;
+                k = 2;
+                l = 3;
+            } else if (i == 1) {
+                j = 2;
+                k = 3;
+                l = 0;
+            } else if (i == 2) {
+                j = 3;
+                k = 0;
+                l = 1;
+            } else if (i == 3) {
+                j = 0;
+                k = 1;
+                l = 2;
+            } 
+            
+            document.getElementById("block1").style.backgroundColor = colorsToSwitch1[i];
+            document.getElementById("block2").style.backgroundColor = colorsToSwitch1[j];
+            document.getElementById("block3").style.backgroundColor = colorsToSwitch1[k];
+            document.getElementById("block4").style.backgroundColor = colorsToSwitch1[l];
+            i++;
+            if (i == 4) {
+                i = 0;
+            }
+
+        }
+
+    </script>
+</body>
+</html>
